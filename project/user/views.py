@@ -1,8 +1,8 @@
-from urllib import response
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from django.http import HttpResponse
-from django.forms import model_to_dict
+# from urllib import response
+# from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from django.http import HttpResponse
+# from django.forms import model_to_dict
 
 from django.shortcuts import render
 from rest_framework import generics, viewsets
