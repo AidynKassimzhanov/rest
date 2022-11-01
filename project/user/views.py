@@ -9,7 +9,7 @@ from rest_framework import generics, viewsets
 from .models import Category, Women
 from .serializers import WomenSerializer
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 
 def index(request):
@@ -18,12 +18,12 @@ def index(request):
 class WomenAPIList(generics.ListCreateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-    # permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly, )
 
 class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-    permission_classes = (IsOwnerOrReadOnly, )
+    permission_classes = (IsAuthenticated, )
 
 class WomenAPIDestroy(generics.RetrieveDestroyAPIView):
     queryset = Women.objects.all()
